@@ -1,507 +1,550 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INKSPIRE — Front Cover | Presidency School, Banashankari</title>
-    
-    <!-- Editorial Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INKSPIRE - Cover Page</title>
 
-    <style>
-        /* ==========================================================================
-           1. CSS VARIABLES & BASE STYLES
-           ========================================================================== */
-        :root {
-            /* Presidency School Blue Palette */
-            --blue-primary: #0b2545;     /* Deep Noble Blue */
-            --blue-navy: #13315c;        /* Rich Navy */
-            --blue-accent: #1e40af;      /* Bright Royal Accent */
-            --blue-subtle: #eef2ff;      /* Light Background Tint */
-            
-            /* Neutrals & Typography */
-            --text-dark: #0f172a;        /* Primary Body & Headline Text */
-            --text-muted: #475569;       /* Secondary Editorial Subtext */
-            --bg-white: #ffffff;         /* Clean Background */
-            --bg-neutral: #f8fafc;       /* Subtle Section Tint */
-            --border-dark: #0b2545;      /* Heavy Editorial Rules */
-            --border-light: #cbd5e1;     /* Fine Editorial Rules */
-            
-            /* Fonts */
-            --font-serif: 'Playfair Display', Georgia, serif;
-            --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-        }
+  <!-- Google Fonts for Editorial Newspaper Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,400&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <style>
+    /* ==========================================================================
+       INKSPIRE COVER PAGE - SCOPED STYLES
+       Restricted strictly to #inkspire-cover-page to avoid site style bleed.
+       ========================================================================== */
 
-        body {
-            background-color: #0f172a;
-            font-family: var(--font-sans);
-            color: var(--text-dark);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 2rem 1rem;
-            -webkit-font-smoothing: antialiased;
-        }
+    #inkspire-cover-page {
+      /* School Blue Palette & Variables */
+      --presidency-blue-deep: #0A2240;  /* Dominant school deep navy blue */
+      --presidency-blue-primary: #0D2C54; /* Main header/text blue */
+      --presidency-blue-accent: #1D4ED8;  /* Subtle editorial accent */
+      --ink-black: #111827;               /* Pure text ink */
+      --paper-bg: #FAF9F6;                /* Authentic newsprint white/cream */
+      --paper-pure: #FFFFFF;              /* Pure white */
+      --rule-color: #0D2C54;              /* Divider lines matching blue */
+      --text-muted: #4B5563;              /* Secondary metadata text */
 
-        /* ==========================================================================
-           2. MAGAZINE COVER CONTAINER (Portrait Editorial Aspect Ratio)
-           ========================================================================== */
-        .magazine-cover {
-            background-color: var(--bg-white);
-            width: 100%;
-            max-width: 900px;
-            aspect-ratio: 1 / 1.414; /* Standard A4 / Editorial Aspect Ratio */
-            padding: 2.5rem 3rem;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid var(--border-light);
-        }
+      /* Typography Families */
+      --font-masthead: 'Cinzel', 'Playfair Display', Georgia, serif;
+      --font-headline: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-editorial: 'Source Serif 4', Georgia, serif;
 
-        /* Editorial Double Border System */
-        .magazine-cover::before {
-            content: '';
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            right: 1rem;
-            bottom: 1rem;
-            border: 1px solid rgba(11, 37, 69, 0.15);
-            pointer-events: none;
-        }
+      width: 100%;
+      height: 100%;
+      min-height: 100vh;
+      box-sizing: border-box;
+      background-color: #E2E8F0; /* Background when displayed inside viewport */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      font-family: var(--font-sans);
+      color: var(--ink-black);
+      -webkit-font-smoothing: antialiased;
+    }
 
-        /* ==========================================================================
-           3. MASTHEAD & HEADER SECTION
-           ========================================================================== */
-        header.cover-header {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
+    #inkspire-cover-page * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        /* Utility Header: Issue details & Logo Placeholder */
-        .header-top-bar {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 0.75rem;
-            border-bottom: 1px solid var(--border-dark);
-            margin-bottom: 1rem;
-        }
+    /* Page Frame - Fixed Portrait Aspect Ratio */
+    #inkspire-cover-page .cover-paper-wrapper {
+      width: 100%;
+      max-width: 900px;
+      background-color: var(--paper-bg);
+      border: 1px solid #CBD5E1;
+      box-shadow: 0 20px 40px rgba(10, 34, 64, 0.15);
+      padding: 32px 36px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
 
-        .school-branding {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
+    /* ==========================================================================
+       1. HEADER & MASTHEAD
+       ========================================================================== */
 
-        .school-logo-placeholder {
-            width: 36px;
-            height: 36px;
-            object-fit: contain;
-            background-color: var(--blue-subtle);
-            border: 1px solid var(--border-light);
-            border-radius: 4px;
-        }
+    #inkspire-cover-page .top-dateline {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--presidency-blue-deep);
+      text-transform: uppercase;
+      padding-bottom: 8px;
+    }
 
-        .school-info {
-            text-align: left;
-        }
+    #inkspire-cover-page .dateline-divider {
+      color: var(--presidency-blue-accent);
+    }
 
-        .school-name {
-            font-size: 0.85rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--blue-primary);
-            line-height: 1.1;
-        }
+    #inkspire-cover-page .masthead-container {
+      text-align: center;
+      margin-top: 4px;
+    }
 
-        .school-location {
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-muted);
-        }
+    #inkspire-cover-page .masthead-rule-top {
+      height: 3px;
+      background-color: var(--presidency-blue-deep);
+      width: 100%;
+      margin-bottom: 8px;
+    }
 
-        .issue-metadata {
-            text-align: right;
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--blue-navy);
-            line-height: 1.3;
-        }
+    #inkspire-cover-page .masthead-title {
+      font-family: var(--font-masthead);
+      font-size: clamp(3.2rem, 8vw, 5.8rem);
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      color: var(--presidency-blue-deep);
+      line-height: 0.95;
+      text-transform: uppercase;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
 
-        /* Primary Publication Title (INKSPIRE) */
-        .publication-masthead {
-            margin: 0.5rem 0 0.25rem 0;
-            width: 100%;
-        }
+    #inkspire-cover-page .masthead-sub-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 6px;
+      padding: 0 4px;
+    }
 
-        .publication-title {
-            font-family: var(--font-serif);
-            font-size: clamp(3.8rem, 8vw, 6.2rem);
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -0.02em;
-            color: var(--blue-primary);
-            line-height: 0.88;
-            word-spacing: -0.05em;
-        }
+    #inkspire-cover-page .school-identity {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: var(--presidency-blue-primary);
+      text-transform: uppercase;
+    }
 
-        /* Tagline Bar */
-        .masthead-tagline-bar {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 0.75rem;
-            padding: 0.4rem 0;
-            border-top: 2px solid var(--border-dark);
-            border-bottom: 1px solid var(--border-dark);
-        }
+    #inkspire-cover-page .publication-tagline {
+      font-family: var(--font-editorial);
+      font-size: 0.75rem;
+      font-style: italic;
+      color: var(--text-muted);
+    }
 
-        .tagline-text {
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.22em;
-            color: var(--blue-navy);
-        }
+    #inkspire-cover-page .masthead-rule-bottom {
+      height: 1px;
+      background-color: var(--presidency-blue-deep);
+      width: 100%;
+      margin-top: 8px;
+    }
 
-        /* ==========================================================================
-           4. HERO SECTION & MAIN VISUAL
-           ========================================================================== */
-        main.cover-main {
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-            margin: 1.25rem 0;
-            flex-grow: 1;
-            position: relative;
-            z-index: 2;
-        }
+    #inkspire-cover-page .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid var(--rule-color);
+      border-bottom: 2px solid var(--rule-color);
+      padding: 5px 4px;
+      margin-top: 3px;
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--presidency-blue-deep);
+      text-transform: uppercase;
+    }
 
-        .hero-visual-container {
-            width: 100%;
-            height: 48%;
-            min-height: 240px;
-            position: relative;
-            overflow: hidden;
-            background-color: var(--blue-subtle);
-            border: 1px solid var(--border-dark);
-        }
+    /* ==========================================================================
+       2. COVER MAIN EDITORIAL GRID
+       ========================================================================== */
 
-        .hero-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
+    #inkspire-cover-page .cover-grid {
+      display: grid;
+      grid-template-columns: 1fr 2.2fr 1fr;
+      gap: 20px;
+      margin-top: 20px;
+      flex: 1;
+    }
 
-        /* Editorial Image Overlay Badge */
-        .hero-badge {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            background-color: var(--blue-primary);
-            color: var(--bg-white);
-            font-size: 0.65rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            padding: 0.35rem 0.75rem;
-            border-radius: 2px;
-        }
+    /* Left & Right Sidebars */
+    #inkspire-cover-page .grid-sidebar-left,
+    #inkspire-cover-page .grid-sidebar-right {
+      display: flex;
+      flex-direction: column;
+    }
 
-        /* ==========================================================================
-           5. FEATURE HEADLINE & EDITORIAL CONTENT GRID
-           ========================================================================== */
-        .editorial-content-grid {
-            display: grid;
-            grid-template-columns: 1.8fr 1fr;
-            gap: 1.5rem;
-            align-items: start;
-        }
+    #inkspire-cover-page .column-divider-horizontal {
+      height: 1px;
+      background-color: #D1D5DB;
+      margin: 14px 0;
+    }
 
-        /* Lead Feature Headline Block */
-        .feature-headline-block {
-            border-right: 1px solid var(--border-light);
-            padding-right: 1.25rem;
-        }
+    /* Teaser Blocks */
+    #inkspire-cover-page .teaser-block {
+      display: flex;
+      flex-direction: column;
+    }
 
-        .category-tag {
-            font-size: 0.7rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--blue-accent);
-            margin-bottom: 0.35rem;
-            display: block;
-        }
+    #inkspire-cover-page .teaser-kicker {
+      font-family: var(--font-sans);
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: var(--presidency-blue-accent);
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
 
-        .main-headline {
-            font-family: var(--font-serif);
-            font-size: clamp(1.75rem, 3.2vw, 2.4rem);
-            font-weight: 700;
-            color: var(--text-dark);
-            line-height: 1.1;
-            margin-bottom: 0.6rem;
-            letter-spacing: -0.01em;
-        }
+    #inkspire-cover-page .teaser-title {
+      font-family: var(--font-headline);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--presidency-blue-deep);
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
 
-        .headline-dek {
-            font-size: 0.85rem;
-            line-height: 1.45;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
+    #inkspire-cover-page .teaser-excerpt {
+      font-family: var(--font-editorial);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
 
-        /* Secondary Editorial Cover Stories */
-        .supporting-stories {
-            display: flex;
-            flex-direction: column;
-            gap: 0.85rem;
-        }
+    /* Main Center Hero Section */
+    #inkspire-cover-page .grid-main-hero {
+      display: flex;
+      flex-direction: column;
+      border-left: 1px solid #E5E7EB;
+      border-right: 1px solid #E5E7EB;
+      padding: 0 16px;
+    }
 
-        .story-item {
-            display: flex;
-            flex-direction: column;
-            gap: 0.15rem;
-            padding-bottom: 0.6rem;
-            border-bottom: 1px dotted var(--border-light);
-        }
+    #inkspire-cover-page .hero-image-container {
+      width: 100%;
+      background-color: #E2E8F0;
+      border: 1px solid var(--presidency-blue-primary);
+      overflow: hidden;
+      position: relative;
+    }
 
-        .story-item:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
+    #inkspire-cover-page .hero-image {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+      filter: contrast(1.03);
+    }
 
-        .story-category {
-            font-size: 0.625rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--blue-primary);
-        }
+    #inkspire-cover-page .hero-image-caption {
+      font-family: var(--font-sans);
+      font-size: 0.62rem;
+      color: var(--text-muted);
+      padding: 6px 4px 0 4px;
+      line-height: 1.3;
+    }
 
-        .story-title {
-            font-family: var(--font-serif);
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            line-height: 1.25;
-        }
+    #inkspire-cover-page .caption-label {
+      font-weight: 800;
+      color: var(--presidency-blue-deep);
+    }
 
-        /* ==========================================================================
-           6. FOOTER SECTION
-           ========================================================================== */
-        footer.cover-footer {
-            width: 100%;
-            border-top: 2px solid var(--border-dark);
-            padding-top: 0.75rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            position: relative;
-            z-index: 2;
-        }
+    /* Main Cover Headline */
+    #inkspire-cover-page .main-headline-block {
+      margin-top: 16px;
+      text-align: center;
+      padding-top: 12px;
+      border-top: 1px solid #E5E7EB;
+    }
 
-        .footer-left {
-            display: flex;
-            flex-direction: column;
-            gap: 0.15rem;
-        }
+    #inkspire-cover-page .main-kicker {
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      color: var(--presidency-blue-accent);
+      text-transform: uppercase;
+    }
 
-        .footer-school-title {
-            font-size: 0.8rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--blue-primary);
-        }
+    #inkspire-cover-page .main-headline-title {
+      font-family: var(--font-headline);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 900;
+      color: var(--presidency-blue-deep);
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      margin: 6px 0 8px 0;
+    }
 
-        .footer-subtext {
-            font-size: 0.68rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            letter-spacing: 0.04em;
-        }
+    #inkspire-cover-page .main-deck {
+      font-family: var(--font-editorial);
+      font-size: 0.88rem;
+      color: #374151;
+      line-height: 1.45;
+      max-width: 92%;
+      margin: 0 auto;
+    }
 
-        .footer-right {
-            text-align: right;
-        }
+    /* Right Sidebar Index Box */
+    #inkspire-cover-page .index-card {
+      background-color: var(--paper-pure);
+      border: 1px solid var(--presidency-blue-primary);
+      padding: 12px;
+    }
 
-        .footer-reveal-label {
-            font-size: 0.68rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--blue-accent);
-            background-color: var(--blue-subtle);
-            padding: 0.25rem 0.5rem;
-            border-radius: 2px;
-            display: inline-block;
-        }
+    #inkspire-cover-page .index-list {
+      list-style: none;
+      margin-top: 8px;
+    }
 
-        /* ==========================================================================
-           7. RESPONSIVE STYLES
-           ========================================================================== */
-        @media (max-width: 640px) {
-            .magazine-cover {
-                aspect-ratio: auto;
-                padding: 1.5rem;
-            }
+    #inkspire-cover-page .index-list li {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px stroke #F1F5F9;
+    }
 
-            .publication-title {
-                font-size: 3.2rem;
-            }
+    #inkspire-cover-page .index-list li:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
 
-            .editorial-content-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
+    #inkspire-cover-page .index-cat {
+      font-family: var(--font-sans);
+      font-size: 0.55rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: var(--presidency-blue-accent);
+    }
 
-            .feature-headline-block {
-                border-right: none;
-                border-bottom: 1px solid var(--border-light);
-                padding-right: 0;
-                padding-bottom: 1rem;
-            }
+    #inkspire-cover-page .index-topic {
+      font-family: var(--font-headline);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--presidency-blue-deep);
+    }
 
-            .hero-visual-container {
-                height: 220px;
-            }
+    #inkspire-cover-page .editorial-note-box {
+      background-color: rgba(13, 44, 84, 0.04);
+      border-left: 3px solid var(--presidency-blue-deep);
+      padding: 10px 12px;
+    }
 
-            footer.cover-footer {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.5rem;
-            }
+    #inkspire-cover-page .note-title {
+      font-family: var(--font-sans);
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: var(--presidency-blue-deep);
+    }
 
-            .footer-right {
-                text-align: left;
-            }
-        }
-    </style>
+    #inkspire-cover-page .note-body {
+      font-family: var(--font-editorial);
+      font-size: 0.75rem;
+      font-style: italic;
+      color: #374151;
+      line-height: 1.35;
+      margin-top: 4px;
+    }
+
+    /* ==========================================================================
+       3. FOOTER
+       ========================================================================== */
+
+    #inkspire-cover-page .cover-footer {
+      margin-top: 24px;
+    }
+
+    #inkspire-cover-page .footer-rule {
+      height: 2px;
+      background-color: var(--presidency-blue-deep);
+      margin-bottom: 6px;
+    }
+
+    #inkspire-cover-page .footer-content {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-sans);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE ADJUSTMENTS
+       ========================================================================== */
+
+    @media (max-width: 768px) {
+      #inkspire-cover-page .cover-paper-wrapper {
+        padding: 20px 16px;
+      }
+
+      #inkspire-cover-page .cover-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      #inkspire-cover-page .grid-main-hero {
+        border-left: none;
+        border-right: none;
+        padding: 0;
+        order: -1;
+      }
+
+      #inkspire-cover-page .hero-image {
+        height: 220px;
+      }
+
+      #inkspire-cover-page .masthead-sub-row {
+        flex-direction: column;
+        gap: 4px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- ==========================================================================
-         MAGAZINE COVER MAIN CONTAINER
-         ========================================================================== -->
-    <article class="magazine-cover">
+  <!-- INKSPIRE COVER PAGE - SCOPED CONTAINER -->
+  <div id="inkspire-cover-page" class="inkspire-cover-root">
+    <div class="cover-paper-wrapper">
+      
+      <!-- TOP UTILITY / DATELINE HEADER -->
+      <header class="cover-header">
+        <div class="top-dateline">
+          <span class="dateline-item">FOUNDED 2026</span>
+          <span class="dateline-divider">•</span>
+          <span class="dateline-item">PRESIDENCY SCHOOL, BANASHANKARI</span>
+          <span class="dateline-divider">•</span>
+          <span class="dateline-item">SPECIAL INAUGURAL EDITION</span>
+          <span class="dateline-divider">•</span>
+          <span class="dateline-item">VOL. I • NO. 1</span>
+        </div>
 
-        <!-- ======================================================================
-             MASTHEAD / HEADER
-             ====================================================================== -->
-        <header class="cover-header">
-            
-            <!-- Utility Bar: School Identity & Issue Info -->
-            <div class="header-top-bar">
-                <div class="school-branding">
-                    <!-- School Logo Image Placeholder -->
-                    <img src="assets/school-logo.png" alt="Presidency School Crest" class="school-logo-placeholder">
-                    <div class="school-info">
-                        <div class="school-name">Presidency School</div>
-                        <div class="school-location">Banashankari</div>
-                    </div>
-                </div>
-                <div class="issue-metadata">
-                    <div>Inaugural Issue</div>
-                    <div>Academic Year 2026–27</div>
-                </div>
+        <!-- MAIN MASTHEAD -->
+        <div class="masthead-container">
+          <div class="masthead-rule-top"></div>
+          <h1 class="masthead-title">INKSPIRE</h1>
+          <div class="masthead-sub-row">
+            <span class="school-identity">PRESIDENCY SCHOOL, BANASHANKARI</span>
+            <span class="publication-tagline">THE OFFICIAL STUDENT NEWSPAPER & DIGITAL MAGAZINE</span>
+          </div>
+          <div class="masthead-rule-bottom"></div>
+        </div>
+
+        <!-- SECONDARY ISSUE BAR -->
+        <div class="issue-bar">
+          <div class="issue-left">BENGALURU, INDIA</div>
+          <div class="issue-center">SPECIAL REVEAL ISSUE</div>
+          <div class="issue-right">ACADEMIC YEAR 2026–2027</div>
+        </div>
+      </header>
+
+      <!-- MAIN EDITORIAL GRID -->
+      <main class="cover-grid">
+
+        <!-- LEFT COLUMN / SUPPORTING STORIES -->
+        <aside class="grid-sidebar-left">
+          <article class="teaser-block">
+            <span class="teaser-kicker">CAMPUS & CULTURE</span>
+            <h3 class="teaser-title">Ideas That Matter</h3>
+            <p class="teaser-excerpt">Exploring student perspectives on innovation, leadership, and community impact across our campus.</p>
+          </article>
+
+          <div class="column-divider-horizontal"></div>
+
+          <article class="teaser-block">
+            <span class="teaser-kicker">STUDENT VOICES</span>
+            <h3 class="teaser-title">Expressive Horizons</h3>
+            <p class="teaser-excerpt">An inside look at student artwork, editorial literature, and creative storytelling across grades.</p>
+          </article>
+
+          <div class="column-divider-horizontal"></div>
+
+          <article class="teaser-block">
+            <span class="teaser-kicker">ACADEMIC EXCELLENCE</span>
+            <h3 class="teaser-title">Beyond the Classroom</h3>
+            <p class="teaser-excerpt">Celebrating scholastic triumphs, research initiatives, and future-focused learning.</p>
+          </article>
+        </aside>
+
+        <!-- CENTER & RIGHT: HERO SECTION + MAJOR HEADLINE -->
+        <section class="grid-main-hero">
+          
+          <!-- HERO VISUAL PLACEHOLDER OR IMAGE -->
+          <div class="hero-image-container">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80" alt="Students in campus discussion" class="hero-image" />
+            <div class="hero-image-caption">
+              <span class="caption-label">FRONT PAGE:</span> Students collaborating on campus, embodying the vision of INKSPIRE.
             </div>
+          </div>
 
-            <!-- Primary Publication Title -->
-            <div class="publication-masthead">
-                <h1 class="publication-title">INKSPIRE</h1>
-            </div>
+          <!-- MAIN COVER HEADLINE -->
+          <article class="main-headline-block">
+            <span class="main-kicker">OFFICIAL PUBLICATION REVEAL</span>
+            <h2 class="main-headline-title">THE VOICE OF OUR CAMPUS</h2>
+            <p class="main-deck">
+              Inaugurating a new era of student journalism, creative expression, and authentic storytelling at Presidency School, Banashankari.
+            </p>
+          </article>
 
-            <!-- Tagline Bar -->
-            <div class="masthead-tagline-bar">
-                <span class="tagline-text">Truth • Creativity • Student Voice</span>
-            </div>
+        </section>
 
-        </header>
+        <!-- RIGHT COLUMN / SECONDARY HIGHLIGHTS -->
+        <aside class="grid-sidebar-right">
+          <article class="teaser-block index-card">
+            <span class="teaser-kicker">INSIDE THIS ISSUE</span>
+            <ul class="index-list">
+              <li>
+                <span class="index-cat">ATHLETICS</span>
+                <span class="index-topic">Passion, Grit & Sportsmanship</span>
+              </li>
+              <li>
+                <span class="index-cat">LEADERSHIP</span>
+                <span class="index-topic">The Student Council Vision</span>
+              </li>
+              <li>
+                <span class="index-cat">STEM & DISCOVERY</span>
+                <span class="index-topic">Student Innovations for Tomorrow</span>
+              </li>
+              <li>
+                <span class="index-cat">EDITORIAL</span>
+                <span class="index-topic">Why Student Journalism Matters</span>
+              </li>
+            </ul>
+          </article>
 
-        <!-- ======================================================================
-             MAIN COVER CONTENT & HERO SECTION
-             ====================================================================== -->
-        <main class="cover-main">
+          <div class="column-divider-horizontal"></div>
 
-            <!-- Hero Visual Area -->
-            <section class="hero-visual-container">
-                <span class="hero-badge">Special Feature</span>
-                <!-- Hero Image Placeholder -->
-                <img src="assets/cover-hero.jpg" alt="Presidency School Students Collaborating" class="hero-image">
-            </section>
+          <div class="editorial-note-box">
+            <span class="note-title">PUBLISHER'S NOTE</span>
+            <p class="note-body">
+              "INKSPIRE serves as the mirror and megaphone for student voice, celebrating achievements, ideas, and shared aspirations."
+            </p>
+          </div>
+        </aside>
 
-            <!-- Editorial Headline Grid -->
-            <section class="editorial-content-grid">
-                
-                <!-- Main Feature Headline -->
-                <div class="feature-headline-block">
-                    <span class="category-tag">Campus Discourse</span>
-                    <h2 class="main-headline">The Future of Student Voice</h2>
-                    <p class="headline-dek">
-                        How young minds at Presidency School are reshaping dialogue, art, and leadership through critical thought and creative expression.
-                    </p>
-                </div>
+      </main>
 
-                <!-- Supporting Cover Stories -->
-                <aside class="supporting-stories">
-                    <div class="story-item">
-                        <span class="story-category">Literary Corner</span>
-                        <h3 class="story-title">Voices Beyond the Classroom: A Poetry Showcase</h3>
-                    </div>
-                    <div class="story-item">
-                        <span class="story-category">STEM & Society</span>
-                        <h3 class="story-title">Ethics in AI: Student Perspectives for 2026</h3>
-                    </div>
-                    <div class="story-item">
-                        <span class="story-category">Arts & Culture</span>
-                        <h3 class="story-title">Reframing Tradition through Modern Expression</h3>
-                    </div>
-                </aside>
-            </section>
-        </main>
+      <!-- COVER FOOTER METADATA -->
+      <footer class="cover-footer">
+        <div class="footer-rule"></div>
+        <div class="footer-content">
+          <span class="footer-left">PUBLISHED BY PRESIDENCY SCHOOL, BANASHANKARI</span>
+          <span class="footer-center">INKSPIRE DIGITAL MAGAZINE • ISSUE 01</span>
+          <span class="footer-right">ALL RIGHTS RESERVED 2026</span>
+        </div>
+      </footer>
 
-        <!-- ======================================================================
-             FOOTER SECTION
-             ====================================================================== -->
-        <footer class="cover-footer">
-            <div class="footer-left">
-                <div class="footer-school-title">Presidency School Banashankari</div>
-                <div class="footer-subtext">Official Student Magazine • Published Annually</div>
-            </div>
-            <div class="footer-right">
-                <span class="footer-reveal-label">Vol. I • Issue 1</span>
-            </div>
-        </footer>
-
-    </article>
+    </div>
+  </div>
 
 </body>
 </html>
